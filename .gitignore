@@ -1,0 +1,18 @@
+# .gitignore para proyectos .NET y Angular
+
+# Archivos de compilación .NET
+bin/
+obj/
+*.log
+*.user
+*.suo
+
+# Configuración de VSCode y Visual Studio
+.vscode/
+.idea/
+.vs/
+
+# Archivos de Angular
+node_modules/
+dist/
+.angular/

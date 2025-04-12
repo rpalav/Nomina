@@ -1,0 +1,81 @@
+<div class="d-flex justify-content-start align-items-center mb-3">
+    <input
+      type="text"
+      class="form-control w-50"
+      placeholder="Buscar por nombre y apellido"
+      [(ngModel)]="searchTerm"
+      (input)="onSearch()"
+    />
+  
+    <button
+    class="btn btn-primary btn-sm me-2 ml-2"
+    [routerLink]="['/persona/gestion', 0]"
+  >
+    Nuevo
+  </button>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th (click)="sortBy('IdPersona')">ID Persona</th>
+  
+          <th (click)="sortBy('Nombre')">Nombres</th>
+          <th (click)="sortBy('Apellido')">Apellidos</th>
+          <th>Edad</th>
+          <th>genero</th>
+          <th>Fecha Nacimiento</th>
+          <th>Lugar Nacimiento</th>
+  
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let persona of personas" [ngStyle]="{'background-color': persona.stock < 5 ? 'red' : ''}" >
+          <td>{{ persona.idPersona }}</td>
+          <td>{{ persona.nombres }}</td>
+          <td>{{ persona.apellidos }}</td>
+          <td>{{ persona.edad }}</td>
+          <td>{{ persona.genero }}</td>
+          <td>{{ persona.fechaNacimiento }}</td>
+          <td>{{ persona.lugarNacimiento }}</td>
+          <td>
+            <button
+              class="btn btn-primary btn-sm me-2"
+              [routerLink]="['/persona/gestion', persona.idPersona]"
+            >
+              Editar Persona
+            </button>
+
+            <button
+              class="btn btn-danger btn-sm ml-2"
+              (click)="deletePersona(persona.idPersona)"
+            >
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="d-flex justify-content-between align-items-center mt-3">
+    <button
+      class="btn btn-secondary"
+      [disabled]="page === 1"
+      (click)="changePage(page - 1)"
+    >
+      Anterior
+    </button>
+  
+    <span>Página {{ page }} de {{ totalPages }}</span>
+  
+    <button
+      class="btn btn-secondary"
+      [disabled]="page === totalPages"
+      (click)="changePage(page + 1)"
+    >
+      Siguiente
+    </button>
+  </div>
+  

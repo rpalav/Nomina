@@ -1,0 +1,102 @@
+<div class="container my-4">
+
+
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Persona</h5>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="personaForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+  
+            <div class="col-md-6 mb-3">
+              <label for="nombres" class="form-label">Nombre</label>
+              <input
+                type="text"
+                id="nombres"
+                class="form-control"
+                formControlName="nombres"
+                placeholder="Ingrese el Nombre"
+              />
+            </div>
+  
+  
+            <div class="col-md-6 mb-3">
+              <label for="apellidos" class="form-label">Apellidos</label>
+              <input
+                type="text"
+                id="apellidos"
+                class="form-control"
+                formControlName="apellidos"
+                placeholder="Ingrese el apellido"
+              />
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="edad" class="form-label">Edad</label>
+              <input
+                type="number"
+                id="edad"
+                class="form-control"
+                formControlName="edad"
+                placeholder="Ingrese la edad"
+              />
+            </div>
+  
+            <div class="col-md-6 mb-3">
+              <label for="genero" class="form-label">Género</label>
+  
+              <select id="genero" class="form-control" formControlName="genero">
+                <option value="">Seleccione</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+              </select>
+            </div>
+          </div>
+  
+  
+  
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="fechaNacimiento" class="form-label">Fecha Nacimiento</label>
+              <input
+                type="date"
+                id="fechaNacimiento"
+                class="form-control"
+                formControlName="fechaNacimiento"
+                placeholder="Ingrese la fecha de nacimiento"
+                />
+            </div>
+  
+            <div class="col-md-6 mb-3">
+              <label for="lugarNacimiento" class="form-label">Fecha Fabricación</label>
+  
+              <input
+              type="text"
+              id="lugarNacimiento"
+              class="form-control"
+              formControlName="lugarNacimiento"
+              placeholder="Ingrese el lugar de nacimiento"
+            />
+            </div>
+          </div>
+  
+    
+  
+          <div class="row mt-3">
+            <div class="col-12 text-end">
+              <button type="submit" class="btn btn-primary" [disabled]="!personaForm.valid">
+                Guardar
+              </button>
+              <button type="reset" class="btn btn-secondary ms-2 ml-3" (click)="resetForm()">
+                Limpiar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

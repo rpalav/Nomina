@@ -1,0 +1,33 @@
+<div class="d-flex">
+  <!-- Sidebar -->
+  <ng-container *ngIf="seguridadService.estaLogueado()">
+  <nav class="sidebar" [class.active]="isSidebarOpen">
+    <ul class="menu">
+      <li class="menu-item">
+        <a routerLink="/persona" routerLinkActive="active">
+          <i class="bi bi-house"></i> Personal
+        </a>
+      </li>
+
+
+      <li class="menu-item">
+        <a (click)="salir()" routerLinkActive="active">
+          <i class="bi bi-question-circle"></i> Salir
+        </a>
+      </li>
+    </ul>
+  </nav>
+</ng-container>
+  <!-- Main Content -->
+  <div class="content">
+    <button class="btn-toggle" (click)="toggleSidebar()">
+      <i class="bi" [class.bi-list]="!isSidebarOpen" [class.bi-x-lg]="isSidebarOpen"></i>
+    </button>
+
+    <div class="page-container">
+      <router-outlet></router-outlet>
+
+  <app-spinner></app-spinner>
+    </div>
+  </div>
+</div>

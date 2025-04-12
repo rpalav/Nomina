@@ -1,0 +1,15 @@
+﻿using DatosNomina.Dtos;
+using DominioNomina.Modelos;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DatosNomina.Repositorio.Usuario
+{
+    public interface IUsuarioRepositorio
+    {
+        Task<Usuarios?> Login(CredencialesDTO credenciales);
+    }
+}
